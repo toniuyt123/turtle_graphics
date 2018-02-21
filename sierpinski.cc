@@ -101,15 +101,16 @@ public:
 int main(int argc, char* argv[]) {
 	int order = atoi(argv[2]);
 	string type = argv[1];
+	Turtle* t;
 	if(type == "svg") {
-		SVGTurtle t(CANVAS_WIDTH_, CANVAS_HEIGHT_);
-		t.setup();
-		Sierpinski s(t);
-		s.draw(order);
+		t = new SVGTurtle(CANVAS_WIDTH_, CANVAS_HEIGHT_);
 	} else if(type == "eps") {
-		PSTurtle t(CANVAS_WIDTH_, CANVAS_HEIGHT_);
-		t.setup();
-		Sierpinski s(t);
-		s.draw(order);
+		t = new PSTurtle(CANVAS_WIDTH_, CANVAS_HEIGHT_);
 	}
+	t.setup();
+	Sierpinski s(t);
+	s.draw(order);
+	delete t;
+
+	return 0;
 }
