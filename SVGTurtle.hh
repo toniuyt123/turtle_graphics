@@ -1,3 +1,12 @@
+//--------------------------------------------
+// NAME: Antonio Milev
+// CLASS: XIb
+// NUMBER: 02
+// PROBLEM: #1
+// FILE NAME: SVGTurtle.hh
+// FILE PURPOSE:
+// Describtion of the SVGTurtle class implemented in SVGTurtle.cc
+//---------------------------------------------
 #ifndef SVGTURTLE_HH_
 #define SVGTURTLE_HH_
 

@@ -1,3 +1,13 @@
+//--------------------------------------------
+// NAME: Antonio Milev
+// CLASS: XIb
+// NUMBER: 02
+// PROBLEM: #1
+// FILE NAME: coordinate.cc
+// FILE PURPOSE:
+// Implementation of the Coordinate class. The superclass of the Star and Hexagon shapes(Also implemented here).
+// It's used to draw the axis and have basic oepration like reseting the turtle position
+//---------------------------------------------
 #include "SVGTurtle.hh"
 #include "turtle.hh"
 #include "coordinate.hh"
@@ -15,6 +25,12 @@ void Coordinate::reset() {
 	turtle_->moveto(center_).set_heading(0);
 }
 
+//--------------------------------------------
+// FUNCTION: draw_axis
+// Draws axis on the plane spreading out to the end
+// of the canvas
+// PARAMETERS:
+//----------------------------------------------
 void Coordinate::draw_axis() {
 	reset();
 	for(int i = 0;i < 4;i++) {

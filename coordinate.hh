@@ -1,3 +1,14 @@
+//--------------------------------------------
+// NAME: Antonio Milev
+// CLASS: XIb
+// NUMBER: 02
+// PROBLEM: #1
+// FILE NAME: coordinate.hh
+// FILE PURPOSE:
+// Describtion of the Coordinate, Hexaon and Star class. Coordinate is the superclass
+// of the other two. It;s used to draw the axis. The virtual function draw is the one 
+// that the other classes use to draw their shapes
+//---------------------------------------------
 #ifndef COORDINATE_HH_
 #define COORDINATE_HH_
 

@@ -1,3 +1,13 @@
+//--------------------------------------------
+// NAME: Antonio Milev
+// CLASS: XIb
+// NUMBER: 02
+// PROBLEM: #1
+// FILE NAME: sierpinski.cc
+// FILE PURPOSE:
+// Draws a sierpinski curve in the given order and
+// format - svg or eps
+//---------------------------------------------
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -20,6 +30,13 @@ public:
 		: turtle_(t), side_(t.get_width() / 4),
 		diag_(sqrt((side_ * side_) / 2)) {}
 
+	
+	//--------------------------------------------
+	// FUNCTION: draw_a
+	// Draws 1/4 of the curve (upper quarter)
+	// PARAMETERS:
+	// order - the order of the part that is needed to be drawn
+	//----------------------------------------------
 	void draw_a(int order) {
 		assert(order >= 0 && order <= 7);
 		if(order > 0){
@@ -34,6 +51,12 @@ public:
 		}
 	}
 
+	//--------------------------------------------
+	// FUNCTION: draw_b
+	// Draws 1/4 of the curve (right quarter)
+	// PARAMETERS:
+	// order - the order of the part that is needed to be drawn
+	//----------------------------------------------
 	void draw_b(int order) {
 		assert(order >= 0 && order <= 7);
 		if(order > 0){
@@ -48,6 +71,12 @@ public:
 		}
 	}
 
+	//--------------------------------------------
+	// FUNCTION: draw_c
+	// Draws 1/4 of the curve (lower quarter)
+	// PARAMETERS:
+	// order - the order of the part that is needed to be drawn
+	//----------------------------------------------
 	void draw_c(int order) {
 		assert(order >= 0 && order <= 7);
 		if(order > 0){
@@ -62,6 +91,12 @@ public:
 		}
 	}
 
+	//--------------------------------------------
+	// FUNCTION: draw_d
+	// Draws 1/4 of the curve (left quarter)
+	// PARAMETERS:
+	// order - the order of the part that is needed to be drawn
+	//----------------------------------------------
 	void draw_d(int order) {
 		assert(order >= 0 && order <= 7);
 		if(order > 0){
@@ -76,6 +111,15 @@ public:
 		}
 	}
 
+	//--------------------------------------------
+	// FUNCTION: draw_a
+	// Draws the whole sierpinski curve in a recursive way.
+	// Calling all the qarters and connecting them.
+	// Each quarter calls itsself and the other ones in such a way that 
+	// the curve arranges correctly in higher orders.
+	// PARAMETERS:
+	// order - the order of the curve
+	//----------------------------------------------
 	void draw(int order) {
 		assert(order >= 0 && order <= 7);
 		calc_side(order);

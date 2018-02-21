@@ -1,3 +1,12 @@
+//--------------------------------------------
+// NAME: Antonio Milev
+// CLASS: XIb
+// NUMBER: 02
+// PROBLEM: #1
+// FILE NAME: hexagon.cc
+// FILE PURPOSE:
+// Draws a red hexagon in the given format - svg or eps
+//---------------------------------------------
 #include <iostream>
 #include "turtle.hh"
 #include "SVGTurtle.hh"
