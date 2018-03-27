@@ -74,12 +74,12 @@ public abstract class GateFactory {
 		return makeFullAdder(a, b, cIn, sum, cOut, "FullAdder");
 	}
 	
-	public static Gate makeRippleCarryAdder(Wire a[], Wire b[], Wire cIn, Wire sum[], Wire cOut) {
+	public static Gate makeRippleCarryAdder(Wire a[], Wire b[], Wire cIn, Wire sum[], Wire cOut, String name) {
 		assert a.length == b.length;
 		assert a.length == sum.length;
 		int count = a.length;
 		
-		CompositeGate rippleAdd = new CompositeGate("rippleAdder");
+		CompositeGate rippleAdd = new CompositeGate(name);
 		List<Wire> connections = new ArrayList<Wire>();
 		connections.add(cIn);
 		for(int i = 1;i < count;i++) {
@@ -98,5 +98,9 @@ public abstract class GateFactory {
 		}
 		
 		return rippleAdd;
+	}
+	
+	public static Gate makeRippleCarryAdder(Wire a[], Wire b[], Wire cIn, Wire sum[], Wire cOut) {
+		return makeRippleCarryAdder(a, b, cIn, sum, cOut, "RippleCarryAdder");
 	}
 }
