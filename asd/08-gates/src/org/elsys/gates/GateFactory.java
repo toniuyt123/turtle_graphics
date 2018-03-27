@@ -81,26 +81,21 @@ public abstract class GateFactory {
 		
 		CompositeGate rippleAdd = new CompositeGate("rippleAdder");
 		List<Wire> connections = new ArrayList<Wire>();
+		connections.add(cIn);
+		for(int i = 1;i < count;i++) {
+			connections.add(new Wire(Integer.toString(i)));
+		}
+		connections.add(cOut);
+		
 		rippleAdd.addInput(cIn);
-		rippleAdd.addInput(a[0]);
-		rippleAdd.addInput(b[0]);
-		rippleAdd.addOutput(sum[0]);
 		rippleAdd.addOutput(cOut);
-		rippleAdd.addInput(a[count - 1]);
-		rippleAdd.addInput(b[count - 1]);
-		rippleAdd.addOutput(sum[count - 1]);
 		
-		connections.add(new Wire("0"));
-		
-		rippleAdd.addGate(makeFullAdder(a[0], b[0], cIn, sum[0], connections.get(0), "FullAdderhalf1"));
-		for(int i = 1;i < count - 1;i++) {
+		for(int i = 0;i < count;i++) {
 			rippleAdd.addInput(a[i]);
 			rippleAdd.addInput(b[i]);
 			rippleAdd.addOutput(sum[i]);
-			connections.add(new Wire(Integer.toString(i)));
-			rippleAdd.addGate(makeFullAdder(a[i], b[i], connections.get(i - 1), sum[i], connections.get(i), "RippleFullAdd" + i));
+			rippleAdd.addGate(makeFullAdder(a[i], b[i], connections.get(i), sum[i], connections.get(i + 1), "RippleFullAdd" + i));
 		}
-		rippleAdd.addGate(makeFullAdder(a[count - 1], b[count - 1], cIn, sum[count - 1], cOut, "FullAdderhalf1"));
 		
 		return rippleAdd;
 	}
