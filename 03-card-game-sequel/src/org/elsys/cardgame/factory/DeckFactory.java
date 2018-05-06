@@ -19,7 +19,7 @@ public class DeckFactory {
 			}
 		}
 		
-		return new Deck(cards);
+		return new Deck(cards, 26);
 	}
 
 	public static Deck defaultSantaseDeck() {
@@ -27,7 +27,7 @@ public class DeckFactory {
 				.filter(card -> card.getRank().compareTo(Rank.EIGHT) > 0)
 				.collect(Collectors.toList());
 		
-		return new Deck(result, 6, "Santase");
+		return new Deck(result, 6);
 	}
 
 	public static Deck defaultBeloteDeck() {
@@ -45,6 +45,6 @@ public class DeckFactory {
 			}
 		}
 		
-		return new Deck(cards, 8, "Belote");
+		return new Deck(cards, 8);
 	}
 }

@@ -2,15 +2,15 @@ package org.elsys.cardgame.operations;
 
 import org.elsys.cardgame.classes.Deck;
 
-public class Size extends DeckOperation {
+public class Deal extends DeckOperation {
 	
-	public Size(Deck deck) {
-		super("size", deck);
+	public Deal(Deck deck) {
+		super("deal", deck);
 	}
 
 	@Override
 	public void execute() {
-		System.out.println(deck.size());
+		deck.deal();
 	}
 
 }
