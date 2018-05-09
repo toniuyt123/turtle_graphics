@@ -11,6 +11,7 @@ public class Sort extends DeckOperation {
 	@Override
 	public void execute() {
 		deck.sort();
+		deck.print();
 	}
 
 }

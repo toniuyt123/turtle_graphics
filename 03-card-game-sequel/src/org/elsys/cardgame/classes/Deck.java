@@ -8,8 +8,6 @@ import org.elsys.cardgame.api.CardException;
 import org.elsys.cardgame.classes.Card;
 import org.elsys.cardgame.classes.Hand;
 
-import org.elsys.cardgame.factory.DeckFactory;
-
 public class Deck implements org.elsys.cardgame.api.Deck {
 
 	private List<Card> cards;
@@ -23,6 +21,10 @@ public class Deck implements org.elsys.cardgame.api.Deck {
 		for(Card c: cards) {
 			this.defaultDeck.add(c);
 		}
+	}
+	
+	public Deck(List<Card> cards) {
+		this(cards, 26);
 	}
 	
 	@Override
@@ -65,7 +67,6 @@ public class Deck implements org.elsys.cardgame.api.Deck {
 		List<Card> drawnCards = new ArrayList<Card>();
 		for(int i = 0;i < handSize();i++) {
 			Card c = drawTopCard();
-			System.out.println(c.getSuit().toString() + c.getRank());
 			drawnCards.add(c);
 		}
 		Hand hand = new Hand(drawnCards);
@@ -86,18 +87,24 @@ public class Deck implements org.elsys.cardgame.api.Deck {
 	@Override
 	public void sort() {
 		List<Card> sorted = defaultDeck;
+		List<Card> result = new ArrayList<Card>();
 		
 		for(Card card : sorted) {
-			if(!cards.contains(card)) {
-				sorted.remove(card);
+			if(cards.contains(card)) {
+				result.add(card);
 			}
 		}
 		
-		cards = sorted;
+		cards = result;
 	}
 	
 	private void checkSize(int size) {
-		if(size > size()) throw new CardException();
+		if(size > size()) throw new CardException("ERROR: Not enough cards in deck");
 	}
 
+	public void print() {
+		for(Card c: getCards()) {
+			c.print();
+		}
+	}
 }

@@ -37,5 +37,9 @@ public class Card implements org.elsys.cardgame.api.Card {
 		}
 		return true;
 	}
+	
+	public void print() {
+		System.out.println(suit.toString() + rank.toString());
+	}
 
 }

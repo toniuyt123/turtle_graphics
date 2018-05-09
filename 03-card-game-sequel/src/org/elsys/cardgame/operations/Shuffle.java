@@ -11,6 +11,7 @@ public class Shuffle extends DeckOperation {
 	@Override
 	public void execute() {
 		deck.shuffle();
+		deck.print();
 	}
 
 }

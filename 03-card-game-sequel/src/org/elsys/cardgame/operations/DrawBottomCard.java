@@ -10,7 +10,7 @@ public class DrawBottomCard extends DeckOperation {
 
 	@Override
 	public void execute() {
-		System.out.println(deck.drawBottomCard());
+		deck.drawBottomCard().print();
 	}
 
 }
